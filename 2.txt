@@ -1,0 +1,56 @@
+#Practical 2
+
+1]import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+2]df=pd.read_csv("C:\\Users\\Ekta\\DSBDA\\StudentPerformance.csv")
+df
+
+3]#Check the content of dataset from top
+print("The First Five Rows are as follows:")
+df.head(5)
+
+4]#Check the content of dataset from bottom
+print("The Last Five Rows are as follows: ")
+df.tail()
+
+5]df.describe()
+
+6]df.info()
+
+7]print("The column names of the dataset are as follows: ")
+# columns gives the name of column in dataset
+df.columns
+
+8]#null() function to check null values in the dataset.
+df.isnull().sum()
+
+11]m_v=df['math score'].mean()
+df['math score'].fillna(value=m_v, inplace=True)
+df
+
+12]df.replace(to_replace = np.nan, value = -99)
+
+13]df.dropna()
+
+14]df.dropna(how = 'all')
+
+15]df.dropna(axis = 1)
+
+16]col = ['math score', 'reading score' , 'writing score','placement score']
+df.boxplot(col)
+
+17]fig, ax = plt.subplots(figsize = (18,10))
+ax.scatter(df['placement score'], df['placement offer count'])
+plt.show()
+
+18]df['log_math'] = np.log10(df['math score'])
+df['log_math'].plot(kind = 'hist')
+
+9]sns.boxplot(y=df['math score'])
+
+10]sns.boxplot(y=df['placement offer count'])
+
